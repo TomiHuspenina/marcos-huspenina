@@ -1,2 +1,2 @@
-# proyecto2023-Marcos-Huspenina
-Proyecto Laboratorio de Computación 2, Marcos Vergara y Huspenina
+# include<Marcos-Huspenina>
+cout<<"Repositorio para cosas de la uni XD";
