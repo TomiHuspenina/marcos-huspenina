@@ -1,0 +1,47 @@
+#Titulo{
+    font-size: 10em;
+    font-weight: bolder;
+    color: white;
+    text-shadow:5px 7px black;
+}
+#puntos{
+    font-size: 3em;
+    font-weight: bolder;
+    color: rgb(0, 0, 0);
+    text-shadow:3px 5px rgb(255, 255, 255);
+}
+
+#jugar{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20%;
+    border-width: 10px;
+    border-color: rgb(47, 78, 39);
+    padding: 10px 60px;
+}
+
+#volver{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20%;
+    border-width: 10px;
+    border-color: rgb(47, 78, 39);
+    padding: 0px 30px;
+    margin-top: 10px;
+}
+
+.principal{
+    font-family: 'DynaPuff', cursive;
+    text-align: center;
+    background: linear-gradient(to top, rgb(178, 223, 169), rgb(0, 87, 0));
+}
+
+.juego{
+    font-family: 'DynaPuff', cursive;
+    text-align: center;
+    background-image: url(imagenes/fondo2.jpg);
+}
