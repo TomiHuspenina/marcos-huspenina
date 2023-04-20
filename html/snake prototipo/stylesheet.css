@@ -34,6 +34,7 @@
     padding: 55px 60px;
     font-family: 'DynaPuff', cursive; 
     margin-top: 40px;
+    margin-bottom: 70px;
 }
 
 #lista{
@@ -63,4 +64,8 @@ text-align: left;
     font-family: 'DynaPuff', cursive;
     text-align: center;
     background-image: url(imagenes/fondo2.jpg);
+}
+
+img{
+    padding-right: 310px;
 }
