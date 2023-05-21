@@ -1,0 +1,136 @@
+.principal{
+    font-family: 'DynaPuff', cursive;
+    text-align: center;
+    background: linear-gradient(to top, rgb(178, 223, 169), rgb(0, 87, 0));
+    background-image: url(imagenes/fondo1.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+h1{
+    font-size: 12em;
+    font-weight: bolder;
+    color: white;
+    text-shadow:5px 7px black;
+    margin-top: -5px;
+    margin-bottom: 5%;
+}
+
+h3{
+    font-size: 3em;
+    font-weight: bolder;
+    color: rgb(0, 0, 0);
+    text-shadow:3px 5px rgb(255, 255, 255);
+}
+
+h4{
+    font-size: 2em;
+}
+
+#ucc{
+    width: 100px;
+    height: 100px;
+    margin-left: -1400px;
+    margin-bottom: -5%;
+    z-index: -1;
+}
+
+.nombre{
+    font-size: 1.5em;
+    font-weight: bolder;
+    color: rgb(255, 255, 255);
+    text-shadow:3px 5px rgb(0, 0, 0);
+}
+
+#nombre_user{
+    font-size: 0.6em;
+    font-family: 'DynaPuff', cursive;
+    width: 200px;
+    height: 35px;
+}
+
+#jugar{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20%;
+    border-width: 10px;
+    border-color: rgb(47, 78, 39);
+    padding: 15px 60px;
+    font-family: 'DynaPuff', cursive;
+}
+
+#jugar:hover{
+    transform: scale(1.1);
+    color: rgb(255, 255, 255);
+    background-color: rgb(30, 32, 131);
+}
+
+#reglas{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 40px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20%;
+    border-width: 10px;
+    border-color: rgb(47, 78, 39);
+    padding: 55px 60px;
+    font-family: 'DynaPuff', cursive; 
+    margin-top: 40px;
+    margin-bottom: 70px;
+}
+
+#reglas:hover {
+    transform: scale(1.1);
+    color: rgb(255, 255, 255);
+    background-color: rgb(30, 32, 131);
+}
+
+#lista{
+text-align: left;
+}
+
+footer{
+    font-family: 'DynaPuff', cursive;
+    font-size: 1em;
+    text-align: center;
+    font-weight: bolder;
+    color: rgb(0, 0, 0);
+    text-shadow:1px 3px rgb(255, 255, 255);
+    margin-top: -2%;
+}
+
+.juego{
+    font-family: 'DynaPuff', cursive;
+    text-align: center;
+    background-image: url(imagenes/fondo2.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#volver{
+    font-family: 'DynaPuff', cursive;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20%;
+    border-width: 10px;
+    border-color: rgb(47, 78, 39);
+    padding: 0px 25px;
+    margin-top: 8px;
+}
+
+#volver:hover {
+    transform: scale(1.1);
+  }
+
+#mapa{
+    padding-right: 310px;
+}
+

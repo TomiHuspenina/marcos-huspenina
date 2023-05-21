@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Autores" content="Joaquin Marcos Vergara, Tomas Huspenina">
+    <meta name="Descripcion" content="En la siguiente página se desarrolla el Snake game, comunmente llamado juego de la viborita">
+    <meta name="Palabras" content="Snake, viborita">
+    <title>Snake Game</title>
+    <link rel="shortcut icon" href="imagenes/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;600&family=Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet.css" type="text/css">
+</head>
+
+<body class="principal">
+    <header>
+        <a href="https://www.ucc.edu.ar/" target="_blank">
+        <img src="imagenes/UCC.png" id="ucc" alt="Logo de la universidad">
+        </a>
+        <h1>Snake Game</h1>
+    </header>
+        
+    <main>
+        <br>
+            <div class="nombre">
+                <label for="nombre_user">NOMBRE DE USUARIO:</label>
+                <input type="nombre" id="nombre_user" placeholder=" Ingrese su nombre ">
+            </div>
+        </br>
+        <div>
+            <nav>
+                <a href="juego.html">
+                    <button id="jugar">
+                        <h2>Jugar</h2>
+                    </button>
+                </a>
+            </nav>
+
+            <button id="reglas" onclick="window.texto.showModal();">
+                Reglas
+            </button>
+
+            <dialog id="texto">
+                <p>
+                    <h4>¡CUIDADO!</h4>
+                </p>
+                <ol id="lista">
+                    <li>No te golpees contra una pared</li>
+                    <li>No te muerdas la cola</li>
+                    <li>Come la mayor cantidad de cerezas!</li>
+                </ol>
+            <button id="volver" onclick="window.texto.close();">Cerrar</button>
+            </dialog>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Autores: Joaquin Marcos Vergara - Tomas Huspenina</p>
+    </footer>
+</body>
+</html>
