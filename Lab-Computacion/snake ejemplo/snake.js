@@ -20,7 +20,7 @@ var foodY;
 
 var gameOver = false;
 
-window.onload = function() {
+window.onload = function(){
     board = document.getElementById("board");
     board.height = rows * blockSize;
     board.width = cols * blockSize;

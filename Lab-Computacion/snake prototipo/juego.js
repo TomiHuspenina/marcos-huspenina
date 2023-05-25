@@ -1,104 +1,136 @@
-//board
-var blockSize = 25;
-var rows = 20;
-var cols = 20;
-var board;
-var context; 
+//tablero 
+var bloque = 25;
+var filas = 20; 
+var columnas = 40; 
+var tablero; 
+var ctx; 
 
-//snake head
-var snakeX = blockSize * 5;
-var snakeY = blockSize * 5;
+//cabeza
+var cabezaX = bloque * 10; 
+var cabezaY = bloque * 10; 
 
-var velocityX = 0;
-var velocityY = 0;
+var velocidadX = 0; 
+var velocidadY = 0;
 
-var snakeBody = [];
+var cuerpo = []; 
 
-//food
-var foodX;
-var foodY;
+var Perder = false; 
 
-var gameOver = false;
+//comida
+var comidaX;  
+var comidaY;
 
-window.onload = function() {
-    board = document.getElementById("board");
-    board.height = rows * blockSize;
-    board.width = cols * blockSize;
-    context = board.getContext("2d"); //used for drawing on the board
 
-    placeFood();
-    document.addEventListener("keyup", changeDirection);
-    // update();
-    setInterval(update, 1000/10); //100 milliseconds
+window.onload = function(){
+
+    //creando el tablero
+    tablero = document.getElementById("tablero"); 
+    tablero.height = filas * bloque; 
+    tablero.width = columnas * bloque; 
+    ctx =  tablero.getContext("2d"); 
+
+    GenerarComida(); 
+    document.addEventListener("keyup", CambioDireccion);
+    //Juego(); 
+    setInterval(Juego, 1000/10);
 }
 
-function update(){
-    if (gameOver) {
-        return;
+ /**
+ * Descripción de que hace la función
+ * @method Nombre de la función
+ * @param {string} ParámetroA - Explicación de que valor almacena ParámetroA
+ * @param {number} ParámetroB - Explicación de que valor almacena ParámetroB
+ * @return Valor que retorna
+ */
+let Juego = () =>{
+    //si perdiste --> deja de dibujar y actualizar el canvas
+    if(Perder){
+        return; 
     }
 
-    context.fillStyle="black";
-    context.fillRect(0, 0, board.width, board.height);
+    //styleando el tablero 
+    ctx.fillStyle = "black"; 
+    ctx.fillRect(0, 0, tablero.width, tablero.height); 
+    //styleando la comida
+    ctx.fillStyle = "red"; 
+    ctx.fillRect(comidaX, comidaY, bloque, bloque);
 
-    context.fillStyle="red";
-    context.fillRect(foodX, foodY, blockSize, blockSize);
-
-    if (snakeX == foodX && snakeY == foodY) {
-        snakeBody.push([foodX, foodY]);
-        placeFood();
+        //simulacion de comer la comida
+    if (cabezaX == comidaX && cabezaY == comidaY) {
+        cuerpo.push([comidaX, comidaY]);
+        GenerarComida();
     }
 
-    for (let i = snakeBody.length-1; i > 0; i--) {
-        snakeBody[i] = snakeBody[i-1];
+    //el cuerpo siga a la cabeza luego de que come la comida
+    for (let i=cuerpo.length-1; i>0; i--) {
+        cuerpo[i] = cuerpo[i-1];
     }
-    if (snakeBody.length) {
-        snakeBody[0] = [snakeX, snakeY];
-    }
-
-    context.fillStyle="lime";
-    snakeX += velocityX * blockSize;
-    snakeY += velocityY * blockSize;
-    context.fillRect(snakeX, snakeY, blockSize, blockSize);
-    for (let i = 0; i < snakeBody.length; i++) {
-        context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
+    if (cuerpo.length) {
+        cuerpo[0] = [cabezaX, cabezaY];
     }
 
-    //game over conditions
-    if (snakeX < 0 || snakeX > cols*blockSize || snakeY < 0 || snakeY > rows*blockSize) {
-        gameOver = true;
-        alert("Game Over");
+
+    //styleando la serpiente 
+    ctx.fillStyle = "green";
+    //actualiza las coordenadas de la cabeza dependiendo de la tecla presionada 
+    cabezaX = cabezaX + (velocidadX * bloque); 
+    cabezaY += velocidadY * bloque; 
+    ctx.fillRect(cabezaX, cabezaY, bloque, bloque); 
+    for(let i=0; i<cuerpo.length; i++){
+        ctx.fillRect(cuerpo[i][0], cuerpo[i][1], bloque, bloque);
     }
 
-    for (let i = 0; i < snakeBody.length; i++) {
-        if (snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) {
-            gameOver = true;
-            alert("Game Over");
+        //condiciones para perder
+        //si la cabeza choca con los extremos
+        if (cabezaX < 0 || cabezaX > columnas*bloque-1 || cabezaY < 0 || cabezaY > filas*bloque-1) {
+            Perder = true;
+            alert("HAS PERDIDO");
         }
-    }
+        //si se come a si mismo
+        for (let i = 0; i < cuerpo.length; i++) {
+            if (cabezaX == cuerpo[i][0] && cabezaY == cuerpo[i][1]) {
+                Perder = true;
+                alert("HAS PERDIDO");
+            }
+        }
+ 
+
 }
 
-function changeDirection(e) {
-    if (e.code == "ArrowUp" && velocityY != 1) {
-        velocityX = 0;
-        velocityY = -1;
-    }
-    else if (e.code == "ArrowDown" && velocityY != -1) {
-        velocityX = 0;
-        velocityY = 1;
-    }
-    else if (e.code == "ArrowLeft" && velocityX != 1) {
-        velocityX = -1;
-        velocityY = 0;
-    }
-    else if (e.code == "ArrowRight" && velocityX != -1) {
-        velocityX = 1;
-        velocityY = 0;
-    }
+ /**
+ * Descripción de que hace la función
+ * @method Nombre de la función
+ * @param {string} ParámetroA - Explicación de que valor almacena ParámetroA
+ * @param {number} ParámetroB - Explicación de que valor almacena ParámetroB
+ * @return Valor que retorna
+ */
+let GenerarComida = () =>{
+    /*Generamos los valores de la comida de manera random
+    Math.floor rendodea el numero dado para abajo (3.7 -> 3)
+    Math.random numero aleatorio entre [0, 1) entonces lo mul
+    tiplicamos por comunas o filas para que sea entre 0 y 20 */
+    comidaX = Math.floor(Math.random() * columnas) * bloque; 
+    comidaY = Math.floor(Math.random() * filas) * bloque; 
 }
 
-
-function placeFood() {
-    //(0-1) * cols -> (0-19.9999) -> (0-19) * 25
-    foodX = Math.floor(Math.random() * cols) * blockSize;
-    foodY = Math.floor(Math.random() * rows) * blockSize;
+let CambioDireccion = (tecla) =>{
+    /*tecla.code verifica si la tecla que presiono el usuario 
+    es alguna de las flechas del teclado y dependiendo de eso 
+    le da el valor a la velocidad en x y en y*/
+    if (tecla.code == "ArrowUp" && velocidadY != 1) {
+        velocidadX = 0;
+        velocidadY = -1;
+    }
+    else if (tecla.code == "ArrowDown" && velocidadY != -1) {
+        velocidadX = 0;
+        velocidadY = 1;
+    }
+    else if (tecla.code == "ArrowLeft" && velocidadX != 1) {
+        velocidadX = -1;
+        velocidadY = 0;
+    }
+    else if (tecla.code == "ArrowRight" && velocidadX != -1) {
+        velocidadX = 1;
+        velocidadY = 0;
+    }
 }
