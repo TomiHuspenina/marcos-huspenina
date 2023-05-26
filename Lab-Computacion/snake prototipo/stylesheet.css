@@ -51,6 +51,17 @@ h4{
     height: 35px;
 }
 
+#guardar{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20%;
+    border-width: 5px;
+    border-color: rgb(47, 78, 39);
+    font-family: 'DynaPuff', cursive;
+}
+
 #jugar{
     text-decoration: none;
     font-weight: bold;
@@ -61,6 +72,7 @@ h4{
     border-color: rgb(47, 78, 39);
     padding: 15px 60px;
     font-family: 'DynaPuff', cursive;
+    margin-top: 30px;
 }
 
 #jugar:hover{
@@ -117,12 +129,12 @@ footer{
     font-family: 'DynaPuff', cursive;
     text-decoration: none;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 40px;
     background-color: rgb(255, 255, 255);
     border-radius: 20%;
     border-width: 10px;
     border-color: rgb(47, 78, 39);
-    padding: 0px 25px;
+    padding: 20px 10px 20px; 
     margin-top: 8px;
 }
 

@@ -14,11 +14,17 @@ var velocidadY = 0;
 
 var cuerpo = []; 
 
-var Perder = false; 
+
 
 //comida
 var comidaX;  
 var comidaY;
+
+//puntos
+var puntos = 0; 
+var nombre; 
+
+var Perder = false; 
 
 
 window.onload = function(){
@@ -31,8 +37,13 @@ window.onload = function(){
 
     GenerarComida(); 
     document.addEventListener("keyup", CambioDireccion);
+    document.addEventListener("keydown", PaginaEstatica); 
     //Juego(); 
     setInterval(Juego, 1000/10);
+}
+
+let GuardarNombre = () =>{
+    nombre = document.getElementById("nombre_user").value; 
 }
 
  /**
@@ -58,6 +69,7 @@ let Juego = () =>{
         //simulacion de comer la comida
     if (cabezaX == comidaX && cabezaY == comidaY) {
         cuerpo.push([comidaX, comidaY]);
+        puntos++; 
         GenerarComida();
     }
 
@@ -75,7 +87,7 @@ let Juego = () =>{
     //actualiza las coordenadas de la cabeza dependiendo de la tecla presionada 
     cabezaX = cabezaX + (velocidadX * bloque); 
     cabezaY += velocidadY * bloque; 
-    ctx.fillRect(cabezaX, cabezaY, bloque, bloque); 
+    ctx.fillRect(cabezaX, cabezaY, bloque, bloque);  
     for(let i=0; i<cuerpo.length; i++){
         ctx.fillRect(cuerpo[i][0], cuerpo[i][1], bloque, bloque);
     }
@@ -84,13 +96,13 @@ let Juego = () =>{
         //si la cabeza choca con los extremos
         if (cabezaX < 0 || cabezaX > columnas*bloque-1 || cabezaY < 0 || cabezaY > filas*bloque-1) {
             Perder = true;
-            alert("HAS PERDIDO");
+            alert("FIN DEL JUEGO: "+ nombre + " HAS PERDIDO \nPUNTUACION FINAL: "+ puntos);
         }
         //si se come a si mismo
         for (let i = 0; i < cuerpo.length; i++) {
             if (cabezaX == cuerpo[i][0] && cabezaY == cuerpo[i][1]) {
                 Perder = true;
-                alert("HAS PERDIDO");
+                alert("FIN DEL JUEGO: "+ nombre + "HAS PERDIDO \nPUNTUACION FINAL: "+ puntos);
             }
         }
  
@@ -134,3 +146,12 @@ let CambioDireccion = (tecla) =>{
         velocidadY = 0;
     }
 }
+
+let PaginaEstatica = (evento) =>{
+        // Verificar si se presionó una flecha del teclado
+        if (evento.key.startsWith("Arrow")){
+            // Prevenir el comportamiento predeterminado de desplazamiento de la página
+            evento.preventDefault();
+        }
+}
+
