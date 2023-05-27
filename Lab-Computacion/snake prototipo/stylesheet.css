@@ -10,7 +10,7 @@
 }
 
 h1{
-    font-size: 12em;
+    font-size: 11em;
     font-weight: bolder;
     color: white;
     text-shadow:5px 7px black;
@@ -32,7 +32,7 @@ h4{
 #ucc{
     width: 100px;
     height: 100px;
-    margin-left: -1400px;
+    margin-left: -1230px;
     margin-bottom: -5%;
     z-index: -1;
 }

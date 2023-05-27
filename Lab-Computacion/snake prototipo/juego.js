@@ -34,7 +34,7 @@ window.onload = function(){
     tablero.height = filas * bloque; 
     tablero.width = columnas * bloque; 
     ctx =  tablero.getContext("2d"); 
-
+ 
     GenerarComida(); 
     document.addEventListener("keyup", CambioDireccion);
     document.addEventListener("keydown", PaginaEstatica); 
@@ -42,6 +42,14 @@ window.onload = function(){
     setInterval(Juego, 1000/10);
 }
 
+
+ /**
+ * Descripción de que hace la función
+ * @method Nombre de la función
+ * @param {string} ParámetroA - Explicación de que valor almacena ParámetroA
+ * @param {number} ParámetroB - Explicación de que valor almacena ParámetroB
+ * @return Valor que retorna
+ */
 let GuardarNombre = () =>{
     nombre = document.getElementById("nombre_user").value; 
 }
@@ -67,11 +75,13 @@ let Juego = () =>{
     ctx.fillRect(comidaX, comidaY, bloque, bloque);
 
         //simulacion de comer la comida
-    if (cabezaX == comidaX && cabezaY == comidaY) {
+    if (cabezaX == comidaX && cabezaY == comidaY){
         cuerpo.push([comidaX, comidaY]);
         puntos++; 
         GenerarComida();
     }
+    //actualiza la variable puntos para que se muestren en pantalla
+    document.getElementById("puntos").textContent = puntos;
 
     //el cuerpo siga a la cabeza luego de que come la comida
     for (let i=cuerpo.length-1; i>0; i--) {
@@ -97,12 +107,15 @@ let Juego = () =>{
         if (cabezaX < 0 || cabezaX > columnas*bloque-1 || cabezaY < 0 || cabezaY > filas*bloque-1) {
             Perder = true;
             alert("FIN DEL JUEGO: "+ nombre + " HAS PERDIDO \nPUNTUACION FINAL: "+ puntos);
+            //refresca la pagina al tocar el boton aceptar
+            window.location.reload();
         }
         //si se come a si mismo
         for (let i = 0; i < cuerpo.length; i++) {
             if (cabezaX == cuerpo[i][0] && cabezaY == cuerpo[i][1]) {
                 Perder = true;
-                alert("FIN DEL JUEGO: "+ nombre + "HAS PERDIDO \nPUNTUACION FINAL: "+ puntos);
+                alert("FIN DEL JUEGO: "+ nombre + " HAS PERDIDO \nPUNTUACION FINAL: "+ puntos);
+                window.location.reload();
             }
         }
  
