@@ -7,9 +7,11 @@
 #include<iostream>
 #include<time.h>
 #include<stdlib.h>
-#include "TableroM.h"
+#include <cstdlib>
+#include <ctime>
+#include "Tablero.h"
 using namespace std;
-class Maquina: public Jugador{
+class Maquina: public Jugador, public Tablero{
 private:
     int Mx;
     int My;
@@ -21,7 +23,8 @@ public:
     void setMy(int my);
     int getMy();
     void Tiro_Maq();
-    TableroM TabM;
+    void CargarTableroM();
+    Barcos B;
 };
 
 

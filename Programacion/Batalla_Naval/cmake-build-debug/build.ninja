@@ -73,14 +73,8 @@ build CMakeFiles/Batalla_Naval.dir/Humano.cpp.obj: CXX_COMPILER__Batalla_Naval_D
   OBJECT_DIR = CMakeFiles\Batalla_Naval.dir
   OBJECT_FILE_DIR = CMakeFiles\Batalla_Naval.dir
 
-build CMakeFiles/Batalla_Naval.dir/TableroH.cpp.obj: CXX_COMPILER__Batalla_Naval_Debug C$:/Users/Joaquin/Documents/marcos-huspenina/Programacion/Batalla_Naval/TableroH.cpp || cmake_object_order_depends_target_Batalla_Naval
-  DEP_FILE = CMakeFiles\Batalla_Naval.dir\TableroH.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\Batalla_Naval.dir
-  OBJECT_FILE_DIR = CMakeFiles\Batalla_Naval.dir
-
-build CMakeFiles/Batalla_Naval.dir/TableroM.cpp.obj: CXX_COMPILER__Batalla_Naval_Debug C$:/Users/Joaquin/Documents/marcos-huspenina/Programacion/Batalla_Naval/TableroM.cpp || cmake_object_order_depends_target_Batalla_Naval
-  DEP_FILE = CMakeFiles\Batalla_Naval.dir\TableroM.cpp.obj.d
+build CMakeFiles/Batalla_Naval.dir/Tablero.cpp.obj: CXX_COMPILER__Batalla_Naval_Debug C$:/Users/Joaquin/Documents/marcos-huspenina/Programacion/Batalla_Naval/Tablero.cpp || cmake_object_order_depends_target_Batalla_Naval
+  DEP_FILE = CMakeFiles\Batalla_Naval.dir\Tablero.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\Batalla_Naval.dir
   OBJECT_FILE_DIR = CMakeFiles\Batalla_Naval.dir
@@ -99,7 +93,7 @@ build CMakeFiles/Batalla_Naval.dir/Barcos.cpp.obj: CXX_COMPILER__Batalla_Naval_D
 #############################################
 # Link the executable Batalla_Naval.exe
 
-build Batalla_Naval.exe: CXX_EXECUTABLE_LINKER__Batalla_Naval_Debug CMakeFiles/Batalla_Naval.dir/main.cpp.obj CMakeFiles/Batalla_Naval.dir/Jugador.cpp.obj CMakeFiles/Batalla_Naval.dir/Maquina.cpp.obj CMakeFiles/Batalla_Naval.dir/Humano.cpp.obj CMakeFiles/Batalla_Naval.dir/TableroH.cpp.obj CMakeFiles/Batalla_Naval.dir/TableroM.cpp.obj CMakeFiles/Batalla_Naval.dir/Barcos.cpp.obj
+build Batalla_Naval.exe: CXX_EXECUTABLE_LINKER__Batalla_Naval_Debug CMakeFiles/Batalla_Naval.dir/main.cpp.obj CMakeFiles/Batalla_Naval.dir/Jugador.cpp.obj CMakeFiles/Batalla_Naval.dir/Maquina.cpp.obj CMakeFiles/Batalla_Naval.dir/Humano.cpp.obj CMakeFiles/Batalla_Naval.dir/Tablero.cpp.obj CMakeFiles/Batalla_Naval.dir/Barcos.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Batalla_Naval.dir

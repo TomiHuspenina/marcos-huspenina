@@ -3,4 +3,4 @@ project(Batalla_Naval)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Batalla_Naval main.cpp Jugador.h Jugador.cpp Maquina.h Maquina.cpp Humano.cpp TableroH.h TableroH.cpp TableroM.h TableroM.cpp Barcos.h Barcos.cpp)
+add_executable(Batalla_Naval main.cpp Jugador.h Jugador.cpp Maquina.h Maquina.cpp Humano.cpp Tablero.h Tablero.cpp Barcos.h Barcos.cpp)

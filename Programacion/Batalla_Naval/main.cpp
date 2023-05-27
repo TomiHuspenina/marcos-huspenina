@@ -3,13 +3,18 @@
 #include "Jugador.h"
 #include "Humano.h"
 #include "Maquina.h"
-#include "TableroH.h"
-#include "TableroM.h"
+#include "Tablero.h"
 using namespace std;
 int main(){
-TableroH H;
-TableroM M;
+/*Tablero H;
+Tablero M;
 
-H.Mostrar_TableroH();
-M.Mostrar_TableroM();
+H.Mostrar_Tablero();
+M.Mostrar_Tablero();*/
+
+Maquina M;
+M.CargarTableroM();
+//H.CargarTableroH();
+
+
 }
