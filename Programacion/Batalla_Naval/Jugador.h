@@ -7,12 +7,12 @@
 #include "Barcos.h"
 using namespace std;
 class Jugador{
-private:
+protected:
     string Nombre;
     int Puntaje;
 public:
     Jugador();
-    Jugador(string Nom, int Punt);
+    Jugador(string Nom);
     void setNombre(string Nom);
     string getNombre();
     void setPuntaje(int Punt);

@@ -1,31 +1,115 @@
 #include "Maquina.h"
 
 Maquina::Maquina(){
-    Mx = 0;
-    My = 0;
+    Mf = 0;
+    Mc = 0;
+    PM = 0;
 }
-Maquina::Maquina(string Nom, int Punt, int mx, int my): Jugador(Nom,Punt){
-    Mx = mx;
-    My = my;
+Maquina::Maquina(string Nom, int mf, int mc, int puntosM): Jugador(Nom){
+    Mf = mf;
+    Mc = mc;
+    PM = puntosM;
+    Barcos();
 }
-void Maquina::setMx(int mx){
-    Mx = mx;
+void Maquina::setMf(int mf){
+    Mf = mf;
 }
-int Maquina::getMx(){
-    return Mx;
+int Maquina::getMf(){
+    return Mf;
 }
-void Maquina::setMy(int my){
-    My = my;
+void Maquina::setMc(int mc){
+    Mc = mc;
 }
-int Maquina::getMy(){
-    return My;
+int Maquina::getMc(){
+    return Mc;
 }
-void Maquina::Tiro_Maq(){
-    srand(time(NULL));
-    Mx = 1+rand()%(10-1);
-    My = 1+rand()%(10-1);
+void Maquina::setPM(int puntosM){
+    PM = puntosM;
 }
-
+int Maquina::getPM(){
+    return PM;
+}
+void Maquina::Tiro_Maq() {
+    int i = 0, j = 0;
+    if (T[Mc][Mf] == " O") {
+        cout << endl << " AGUA";
+    } else {
+        for (i = 1; i < 8; i++) {
+            switch (i) {
+                case 1:
+                    if (T[Mc][Mf] == "B1") {
+                        if (B.Barco1() == true) {
+                            cout << endl << " BARCOS 1 HUNDIDO";
+                            Puntaje++;
+                        } else {
+                            cout << endl << " TIRO ACERTADO ";
+                        }
+                    }
+                    break;
+                case 2:
+                    if (T[Mc][Mf] == "B2") {
+                        if (B.Barco2() == true) {
+                            cout << endl << " BARCOS 2 HUNDIDO";
+                            Puntaje++;
+                        } else {
+                            cout << endl << " TIRO ACERTADO ";
+                        }
+                    }
+                    break;
+                case 3:
+                    if (T[Mc][Mf] == "B3") {
+                        if (B.Barco3() == true) {
+                            cout << endl << " BARCOS 3 HUNDIDO";
+                            Puntaje++;
+                        } else {
+                            cout << endl << " TIRO ACERTADO ";
+                        }
+                    }
+                    break;
+                case 4:
+                    if (T[Mc][Mf] == "B4") {
+                        if (B.Barco4() == true) {
+                            cout << endl << " BARCOS 4 HUNDIDO";
+                            Puntaje++;
+                        } else {
+                            cout << endl << " TIRO ACERTADO ";
+                        }
+                    }
+                    break;
+                case 5:
+                    if (T[Mc][Mf] == "B5") {
+                        if (B.Barco5() == true) {
+                            cout << endl << " BARCOS 5 HUNDIDO";
+                            Puntaje++;
+                        } else {
+                            cout << endl << " TIRO ACERTADO ";
+                        }
+                    }
+                    break;
+                case 6:
+                    if (T[Mc][Mf] == "B6") {
+                        if (B.Barco6() == true) {
+                            cout << endl << " BARCOS 6 HUNDIDO";
+                            Puntaje++;
+                        } else {
+                            cout << endl << " TIRO ACERTADO ";
+                        }
+                    }
+                    break;
+                case 7:
+                    if (T[Mc][Mf] == "B7") {
+                        if (B.Barco7() == true) {
+                            cout << endl << " BARCOS 7 HUNDIDO";
+                            Puntaje++;
+                        } else {
+                            cout << endl << " TIRO ACERTADO ";
+                        }
+                    }
+                    break;
+            }
+        }
+    }
+}
 void Maquina::CargarTableroM(){
     Crear_Tablero();
     int fila, columna, i = 0, j = 0, opcion;

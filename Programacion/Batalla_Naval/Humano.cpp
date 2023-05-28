@@ -1,38 +1,47 @@
 #include "Humano.h"
 #include "Tablero.h"
 Humano::Humano(){
-    Hx = 0;
-    Hy = 0;
+    Hf = 0;
+    Hc = 0;
+    PH = 0;
 }
-Humano::Humano(string Nom, int Punt, int hx, int hy): Jugador(Nom, Punt){
-    Hx = hx;
-    Hy = hy;
+Humano::Humano(string Nom, int Punt, int hf, int hc, int puntosH): Jugador(Nom, Punt){
+    Hf = hf;
+    Hc = hc;
+    PH = puntosH;
 }
-Humano::Humano(string t[9][9], int hx, int hy): Tablero(t){
-    Hx = hx;
-    Hy = hy;
+Humano::Humano(string t[9][9], int hf, int hc, int puntosH): Tablero(t){
+    Hf = hf;
+    Hc = hc;
+    PH = puntosH;
 }
-void Humano::setHx(int hx){
-    Hx = hx;
+void Humano::setHf(int hx){
+    Hf = hx;
 }
-int Humano::getHx(){
-    return Hx;
+int Humano::getHf(){
+    return Hf;
 }
-void Humano::setHy(int hy){
-    Hy = hy;
+void Humano::setHc(int hy){
+    Hc = hy;
 }
-int Humano::getHy(){
-    return Hy;
+int Humano::getHc(){
+    return Hc;
+}
+void Humano::setPH(int puntosH){
+    PH = puntosH;
+}
+int Humano::getPH(){
+    return PH;
 }
 void Humano::Tiro_Hum(){
     bool bandera;
     do {
         cout << endl << " INGRESE LAS COORDENADAS DEL TIRO ";
         cout << endl << " Coordenada en X: ";
-        cin >> Hx;
+        cin >> Hf;
         cout << endl << " Coordenada en Y: ";
-        cin >> Hy;
-        if(Hx<0 || Hy<0 || isdigit(Hx) || isdigit(Hy)){
+        cin >> Hc;
+        if(Hf<0 || Hc<0 || isdigit(Hf) || isdigit(Hc)){
             bandera=false;
             cout<<endl<<" ADVERTENCIA: El valor ingresado es erroneo";
         }else{
@@ -474,8 +483,8 @@ void Humano::CargarTableroH() {
                                 break;
                             }
                         }
-                        if (bandera == true) {
-                            switch (k) {
+                        if (bandera == true){
+                            switch(k){
                                 case 0:
                                     for (j = columna; j < columna + 2; j++) {
                                         T[fila][j] = "B5";

@@ -8,16 +8,19 @@
 #include "Tablero.h"
 class Humano: public Jugador, public Tablero{
 private:
-    int Hx;
-    int Hy;
+    int Hf;
+    int Hc;
+    int PH;
 public:
     Humano();
-    Humano(string Nom, int Punt, int hx, int hy);
-    Humano(string t[9][9], int hx, int hy);
-    void setHx(int hx);
-    int getHx();
-    void setHy(int hy);
-    int getHy();
+    Humano(string Nom, int Punt, int hf, int hc, int puntosH);
+    Humano(string t[9][9], int hf, int hc, int puntosH);
+    void setHf(int hf);
+    int getHf();
+    void setHc(int hc);
+    int getHc();
+    void setPH(int puntosH);
+    int getPH();
     void Tiro_Hum();
     void CargarTableroH();
     Barcos B;

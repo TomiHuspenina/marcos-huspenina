@@ -3,9 +3,9 @@ Jugador::Jugador() {
     Nombre = " ";
     Puntaje = 0;
 }
-Jugador::Jugador(string Nom, int punt){
+Jugador::Jugador(string Nom){
     Nombre = Nom;
-    Puntaje = punt;
+    Puntaje = 0;
 }
 void Jugador::setPuntaje(int Punt){
     Puntaje = Punt;

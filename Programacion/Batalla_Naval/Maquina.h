@@ -13,15 +13,18 @@
 using namespace std;
 class Maquina: public Jugador, public Tablero{
 private:
-    int Mx;
-    int My;
+    int Mf;
+    int Mc;
+    int PM;
 public:
     Maquina();
-    Maquina(string Nom, int Punt, int mx, int my);
-    void setMx(int mx);
-    int getMx();
-    void setMy(int my);
-    int getMy();
+    Maquina(string Nom, int mf, int mc, int puntosM);
+    void setMf(int mf);
+    int getMf();
+    void setMc(int mc);
+    int getMc();
+    void setPM(int puntosM);
+    int getPM();
     void Tiro_Maq();
     void CargarTableroM();
     Barcos B;
