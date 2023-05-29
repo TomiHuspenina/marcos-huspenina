@@ -31,78 +31,106 @@ int Maquina::getPM(){
 }
 void Maquina::Tiro_Maq() {
     int i = 0, j = 0;
-    if (T[Mc][Mf] == " O") {
+    if (T[Mf][Mc] == " O") {
         cout << endl << " AGUA";
     } else {
         for (i = 1; i < 8; i++) {
             switch (i) {
                 case 1:
-                    if (T[Mc][Mf] == "B1") {
+                    if (T[Mf][Mc] == "B1") {
                         if (B.Barco1() == true) {
-                            cout << endl << " BARCOS 1 HUNDIDO";
+                            cout << endl << " BARCO 1 HUNDIDO";
                             Puntaje++;
+                            T[Mf][Mc] = " X";
+                            TX[Mf][Mc] = " X";
                         } else {
                             cout << endl << " TIRO ACERTADO ";
+                            T[Mf][Mc] = " X";
+                            TX[Mf][Mc] = " X";
                         }
                     }
                     break;
                 case 2:
-                    if (T[Mc][Mf] == "B2") {
+                    if (T[Mf][Mc] == "B2") {
                         if (B.Barco2() == true) {
-                            cout << endl << " BARCOS 2 HUNDIDO";
+                            cout << endl << " BARCO 2 HUNDIDO";
                             Puntaje++;
+                            T[Mf][Mc] = " X";
+                            TX[Mf][Mc] = " X";
                         } else {
                             cout << endl << " TIRO ACERTADO ";
+                            T[Mf][Mc] = " X";
+                            TX[Mf][Mc] = " X";
                         }
                     }
                     break;
                 case 3:
-                    if (T[Mc][Mf] == "B3") {
+                    if (T[Mf][Mc] == "B3") {
                         if (B.Barco3() == true) {
-                            cout << endl << " BARCOS 3 HUNDIDO";
+                            cout << endl << " BARCO 3 HUNDIDO";
                             Puntaje++;
+                            T[Mf][Mc] = " X";
+                            TX[Mf][Mc] = " X";
                         } else {
                             cout << endl << " TIRO ACERTADO ";
+                            T[Mf][Mc] = " X";
+                            TX[Mf][Mc] = " X";
                         }
                     }
                     break;
                 case 4:
-                    if (T[Mc][Mf] == "B4") {
+                    if (T[Mf][Mc] == "B4") {
                         if (B.Barco4() == true) {
-                            cout << endl << " BARCOS 4 HUNDIDO";
+                            cout << endl << " BARCO 4 HUNDIDO";
                             Puntaje++;
+                            T[Mf][Mc] = " X";
+                            TX[Mf][Mc] = " X";
                         } else {
                             cout << endl << " TIRO ACERTADO ";
+                            T[Mf][Mc] = " X";
+                            TX[Mf][Mc] = " X";
                         }
                     }
                     break;
                 case 5:
-                    if (T[Mc][Mf] == "B5") {
+                    if (T[Mf][Mc] == "B5") {
                         if (B.Barco5() == true) {
-                            cout << endl << " BARCOS 5 HUNDIDO";
+                            cout << endl << " BARCO 5 HUNDIDO";
                             Puntaje++;
+                            T[Mf][Mc] = " X";
+                            TX[Mf][Mc] = " X";
                         } else {
                             cout << endl << " TIRO ACERTADO ";
+                            T[Mf][Mc] = " X";
+                            TX[Mf][Mc] = " X";
                         }
                     }
                     break;
                 case 6:
-                    if (T[Mc][Mf] == "B6") {
+                    if (T[Mf][Mc] == "B6") {
                         if (B.Barco6() == true) {
-                            cout << endl << " BARCOS 6 HUNDIDO";
+                            cout << endl << " BARCO 6 HUNDIDO";
                             Puntaje++;
+                            T[Mf][Mc] = " X";
+                            TX[Mf][Mc] = " X";
                         } else {
                             cout << endl << " TIRO ACERTADO ";
+                            T[Mf][Mc] = " X";
+                            TX[Mf][Mc] = " X";
                         }
                     }
                     break;
                 case 7:
-                    if (T[Mc][Mf] == "B7") {
+                    if (T[Mf][Mc] == "B7") {
                         if (B.Barco7() == true) {
-                            cout << endl << " BARCOS 7 HUNDIDO";
+                            cout << endl << " BARCO 7 HUNDIDO";
                             Puntaje++;
+                            T[Mf][Mc] = " X";
+                            TX[Mf][Mc] = " X";
                         } else {
                             cout << endl << " TIRO ACERTADO ";
+                            T[Mf][Mc] = " X";
+                            TX[Mf][Mc] = " X";
                         }
                     }
                     break;
@@ -441,5 +469,5 @@ void Maquina::CargarTableroM(){
             bandera = false;
         }
     }while(bandera == false);
-    Mostrar_Tablero();
+    Mostrar_TableroT();
 }

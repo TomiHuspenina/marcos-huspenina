@@ -5,12 +5,12 @@ Humano::Humano(){
     Hc = 0;
     PH = 0;
 }
-Humano::Humano(string Nom, int Punt, int hf, int hc, int puntosH): Jugador(Nom, Punt){
+Humano::Humano(string Nom, int hf, int hc, int puntosH): Jugador(Nom){
     Hf = hf;
     Hc = hc;
     PH = puntosH;
 }
-Humano::Humano(string t[9][9], int hf, int hc, int puntosH): Tablero(t){
+Humano::Humano(string t[9][9], string tx[9][9], int hf, int hc, int puntosH): Tablero(t, tx){
     Hf = hf;
     Hc = hc;
     PH = puntosH;
@@ -34,118 +34,114 @@ int Humano::getPH(){
     return PH;
 }
 void Humano::Tiro_Hum(){
-    bool bandera;
-    do {
-        cout << endl << " INGRESE LAS COORDENADAS DEL TIRO ";
-        cout << endl << " Coordenada en X: ";
-        cin >> Hf;
-        cout << endl << " Coordenada en Y: ";
-        cin >> Hc;
-        if(Hf<0 || Hc<0 || isdigit(Hf) || isdigit(Hc)){
-            bandera=false;
-            cout<<endl<<" ADVERTENCIA: El valor ingresado es erroneo";
-        }else{
-            bandera=true;
-        }
-    }while(bandera==false);
-}
-
-/*void Humano::CargarTableroH(){
-    Crear_Tablero();
-    int posx, posy, i=0, j=0, aux=0;
-    cout<<endl<<" COLOQUE SUS BARCOS EN LA POSICION QUE DESEE ";
-    cout<<endl<<" BARCO 1 - ocupacion de 4 casillas: ";
-    while(aux!=4){
-        cout<<endl<<" Coordenada en X: ";
-        cin>>posx;
-        cout<<"Coordenada en Y: ";
-        cin>>posy;
-        if(T[posx-1][posy-1] == " O"){
-            T[posx-1][posy-1] = "B1";
-            aux++;
-        }else{
-            cout<<endl<<" ADVERTENCIA: ya hay un barco es esa posicion"<<endl;
-        }
-        Mostrar_Tablero();
-    }
-
-    cout<<endl<<" BARCO 2,3,4 - ocupacion de 3 casillas: ";
-    for(i=0; i<3; i++){
-        aux=0;
-        while (aux != 3){
-            cout << endl << " Coordenada en X: ";
-            cin >> posx;
-            cout << "Coordenada en Y: ";
-            cin >> posy;
-            if (T[posx - 1][posy - 1] == " O"){
-            switch (i){
-                case 0:
-                    T[posx - 1][posy - 1] = "B2";
-                    aux++;
-                    Mostrar_Tablero();
-                    break;
+    int i = 0, j = 0;
+    if (T[Hf][Hc] == " O") {
+        cout << endl << " AGUA";
+    } else {
+        for (i = 1; i < 8; i++) {
+            switch (i) {
                 case 1:
-                    T[posx - 1][posy - 1] = "B3";
-                    aux++;
-                    Mostrar_Tablero();
+                    if (T[Hf][Hc] == "B1") {
+                        if (B.Barco1() == true) {
+                            cout << endl << " BARCO 1 HUNDIDO";
+                            Puntaje++;
+                            T[Hf][Hc] = " X";
+                            TX[Hf][Hc] = " X";
+                        } else {
+                            cout << endl << " TIRO ACERTADO ";
+                            T[Hf][Hc] = " X";
+                            TX[Hf][Hc] = " X";
+                        }
+                    }
                     break;
                 case 2:
-                    T[posx - 1][posy - 1] = "B4";
-                    aux++;
-                    Mostrar_Tablero();
+                    if (T[Hf][Hc] == "B2") {
+                        if (B.Barco2() == true) {
+                            cout << endl << " BARCO 2 HUNDIDO";
+                            Puntaje++;
+                            T[Hf][Hc] = " X";
+                            TX[Hf][Hc] = " X";
+                        } else {
+                            cout << endl << " TIRO ACERTADO ";
+                            T[Hf][Hc] = " X";
+                            TX[Hf][Hc] = " X";
+                        }
+                    }
+                    break;
+                case 3:
+                    if (T[Hf][Hc] == "B3") {
+                        if (B.Barco3() == true) {
+                            cout << endl << " BARCO 3 HUNDIDO";
+                            Puntaje++;
+                            T[Hf][Hc] = " X";
+                            TX[Hf][Hc] = " X";
+                        } else {
+                            cout << endl << " TIRO ACERTADO ";
+                            T[Hf][Hc] = " X";
+                            TX[Hf][Hc] = " X";
+                        }
+                    }
+                    break;
+                case 4:
+                    if (T[Hf][Hc] == "B4") {
+                        if (B.Barco4() == true) {
+                            cout << endl << " BARCO 4 HUNDIDO";
+                            Puntaje++;
+                            T[Hf][Hc] = " X";
+                            TX[Hf][Hc] = " X";
+                        } else {
+                            cout << endl << " TIRO ACERTADO ";
+                            T[Hf][Hc] = " X";
+                            TX[Hf][Hc] = " X";
+                        }
+                    }
+                    break;
+                case 5:
+                    if (T[Hf][Hc] == "B5") {
+                        if (B.Barco5() == true) {
+                            cout << endl << " BARCO 5 HUNDIDO";
+                            Puntaje++;
+                            T[Hf][Hc] = " X";
+                            TX[Hf][Hc] = " X";
+                        } else {
+                            cout << endl << " TIRO ACERTADO ";
+                            T[Hf][Hc] = " X";
+                            TX[Hf][Hc] = " X";
+                        }
+                    }
+                    break;
+                case 6:
+                    if (T[Hf][Hc] == "B6") {
+                        if (B.Barco6() == true) {
+                            cout << endl << " BARCO 6 HUNDIDO";
+                            Puntaje++;
+                            T[Hf][Hc] = " X";
+                            TX[Hf][Hc] = " X";
+                        } else {
+                            cout << endl << " TIRO ACERTADO ";
+                            T[Hf][Hc] = " X";
+                            TX[Hf][Hc] = " X";
+                        }
+                    }
+                    break;
+                case 7:
+                    if (T[Hf][Hc] == "B7") {
+                        if (B.Barco7() == true) {
+                            cout << endl << " BARCO 7 HUNDIDO";
+                            Puntaje++;
+                            T[Hf][Hc] = " X";
+                            TX[Hf][Hc] = " X";
+                        } else {
+                            cout << endl << " TIRO ACERTADO ";
+                            T[Hf][Hc] = " X";
+                            TX[Hf][Hc] = " X";
+                        }
+                    }
                     break;
             }
-        }else{
-                cout<<endl<<" ADVERTENCIA: ya hay un barco es esa posicion"<<endl;
-                Mostrar_Tablero();
-            }
         }
     }
-
-    cout<<endl<<" BARCO 5,6 - ocupacion de 2 casillas: ";
-    for(i=0; i<2; i++){
-        aux=0;
-        while (aux != 2){
-            cout << endl << " Coordenada en X: ";
-            cin >> posx;
-            cout << "Coordenada en Y: ";
-            cin >> posy;
-            if (T[posx - 1][posy - 1] == " O"){
-                switch (i){
-                    case 0:
-                        T[posx - 1][posy - 1] = "B5";
-                        aux++;
-                        Mostrar_Tablero();
-                        break;
-                    case 1:
-                        T[posx - 1][posy - 1] = "B6";
-                        aux++;
-                        Mostrar_Tablero();
-                        break;
-                }
-            }else{
-                cout<<endl<<" ADVERTENCIA: ya hay un barco es esa posicion"<<endl;
-                Mostrar_Tablero();
-            }
-        }
-    }
-
-    cout<<endl<<" BARCO 7 - ocupacion de 1 casillas: ";
-    aux=0;
-    while(aux!=1){
-        cout<<endl<<" Coordenada en X: ";
-        cin>>posx;
-        cout<<"Coordenada en Y: ";
-        cin>>posy;
-        if(T[posx-1][posy-1] == " O"){
-            T[posx-1][posy-1] = "B7";
-            aux++;
-        }else{
-            cout<<endl<<" ADVERTENCIA: ya hay un barco es esa posicion"<<endl;
-        }
-        Mostrar_Tablero();
-    }
-}*/
+}
 
 void Humano::CargarTableroH() {
     Crear_Tablero();
@@ -244,7 +240,7 @@ void Humano::CargarTableroH() {
             }
         }
     } while (bandera == false);
-    Mostrar_Tablero();
+    Mostrar_TableroT();
 
     cout << endl << " BARCO 2,3,4 - ocupacion de 3 casillas: ";
     for (int k = 0; k < 3; k++){
@@ -396,7 +392,7 @@ void Humano::CargarTableroH() {
                     }
                 }
             }
-            Mostrar_Tablero();
+            Mostrar_TableroT();
         }while (bandera == false);
     }
 
@@ -530,7 +526,7 @@ void Humano::CargarTableroH() {
                     }
                 }
             }
-            Mostrar_Tablero();
+            Mostrar_TableroT();
         }while (bandera == false);
     }
 
@@ -553,5 +549,5 @@ void Humano::CargarTableroH() {
         bandera = false;
     }
 }while(bandera == false);
-    Mostrar_Tablero();
+    Mostrar_TableroT();
 }

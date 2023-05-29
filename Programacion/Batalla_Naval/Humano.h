@@ -13,8 +13,8 @@ private:
     int PH;
 public:
     Humano();
-    Humano(string Nom, int Punt, int hf, int hc, int puntosH);
-    Humano(string t[9][9], int hf, int hc, int puntosH);
+    Humano(string Nom, int hf, int hc, int puntosH);
+    Humano(string t[9][9], string tx[9][9], int hf, int hc, int puntosH);
     void setHf(int hf);
     int getHf();
     void setHc(int hc);
