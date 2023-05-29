@@ -4,6 +4,7 @@
 #include "Humano.h"
 #include "Maquina.h"
 #include "Tablero.h"
+#include<cstdlib>  //libreria para el sistem("cls")
 using namespace std;
 int main() {
     int opcion;
@@ -23,6 +24,8 @@ int main() {
         cin >> opcion;
     } while (opcion < 0 || opcion > 2);
 
+    system("cls");  //limpia la pantalla luedo de elegir el modo de juego
+
     switch (opcion) {
         case 1: {
             Humano H[2];
@@ -37,7 +40,7 @@ int main() {
             H[0].setNombre(Nom1);
             H[1].setNombre(Nom2);
             int turno = 0, aux = 1;
-            while (H[0].getPuntaje() < 7 || H[1].getPuntaje() < 7) {
+            while (H[0].getPuntaje() != 7 || H[1].getPuntaje() != 7) {
                 int hf, hc;
                 bool bandera;
                 //TIRO JUGADOR
@@ -51,7 +54,7 @@ int main() {
                     cin >> hf;
                     cout << "Numero de columna: ";
                     cin >> hc;
-                    if (hf < 0 || hc < 0 || isdigit(hf) || isdigit(hc)) {
+                    if (hf < 0 || hc < 0 || isdigit(hf) || isdigit(hc) || hf>9 || hc>9) {
                         bandera = false;
                         cout << endl << " ADVERTENCIA: El valor ingresado es erroneo";
                     } else { bandera = true; }
