@@ -1,3 +1,0 @@
-C:/Users/Tomi/Documents/TOMI/SEGUNDO ANHO/Lab. comp II/marcos-huspenina/Programacion/Batalla_Naval/cmake-build-debug/CMakeFiles/Batalla_Naval.dir
-C:/Users/Tomi/Documents/TOMI/SEGUNDO ANHO/Lab. comp II/marcos-huspenina/Programacion/Batalla_Naval/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Tomi/Documents/TOMI/SEGUNDO ANHO/Lab. comp II/marcos-huspenina/Programacion/Batalla_Naval/cmake-build-debug/CMakeFiles/rebuild_cache.dir
