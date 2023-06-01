@@ -24,13 +24,12 @@ int main() {
         cin >> opcion;
     } while (opcion < 0 || opcion > 2);
 
-    system("cls");  //limpia la pantalla luedo de elegir el modo de juego
+    system("cls");  //limpia la pantalla luego de elegir el modo de juego
 
     switch (opcion) {
         case 1: {
             Humano H[2];
-            H[0].CargarTableroH();
-            H[1].CargarTableroH();
+
             string Nom1, Nom2;
             cout << endl << " ------------------- A JUGAR -------------------";
             cout << endl << " Ingrese el nombre del jugador 1: ";
@@ -39,6 +38,8 @@ int main() {
             cin >> Nom2;
             H[0].setNombre(Nom1);
             H[1].setNombre(Nom2);
+            H[0].CargarTableroH();
+            H[1].CargarTableroH();
             int turno = 0, aux = 1;
             while (H[0].getPuntaje() != 7 || H[1].getPuntaje() != 7) {
                 int hf, hc;
@@ -86,13 +87,13 @@ int main() {
         case 2: {
             Humano H;
             Maquina M;
-            M.CargarTableroM();
-            H.CargarTableroH();
             string Nom;
             cout << endl << " ------------------- A JUGAR -------------------";
             cout << endl << " Ingrese el nombre del jugador: ";
             cin >> Nom;
             H.setNombre(Nom);
+            M.CargarTableroM();
+            H.CargarTableroH();
             while (M.getPuntaje() != 7 || H.getPuntaje() != 7) {
                 int hf, hc, mf, mc;
                 bool bandera;
@@ -103,7 +104,7 @@ int main() {
                     cin >> hf;
                     cout << "Numero de columna: ";
                     cin >> hc;
-                    if (hf < 0 || hc < 0 || isdigit(hf) || isdigit(hc || hf<9 || hc<9)) {
+                    if (hf < 0 || hc < 0 || isdigit(hf) || isdigit(hc || hf>9 || hc>9)) {
                         bandera = false;
                         cout << endl << " ADVERTENCIA: El valor ingresado es erroneo";
                     } else { bandera = true; }
