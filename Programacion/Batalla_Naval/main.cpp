@@ -103,7 +103,7 @@ int main() {
                     cin >> hf;
                     cout << "Numero de columna: ";
                     cin >> hc;
-                    if (hf < 0 || hc < 0 || isdigit(hf) || isdigit(hc)) {
+                    if (hf < 0 || hc < 0 || isdigit(hf) || isdigit(hc || hf<9 || hc<9)) {
                         bandera = false;
                         cout << endl << " ADVERTENCIA: El valor ingresado es erroneo";
                     } else { bandera = true; }
